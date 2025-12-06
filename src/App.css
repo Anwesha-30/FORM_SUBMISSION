@@ -1,11 +1,18 @@
 /* Make entire screen active area */
-html, body {
+/* RESET */
+* {
     margin: 0;
     padding: 0;
-    height: 100%;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
 }
 
-/* Full screen container */
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
+
+/* MAIN CONTAINER */
 .container {
     position: relative;
     height: 100vh;
@@ -13,164 +20,155 @@ html, body {
     overflow: hidden;
 }
 
-/* Moving background animation */
+/* MOVING COLOR WAVES BACKGROUND */
 .moving-bg {
     position: absolute;
     width: 200%;
     height: 200%;
-    background: linear-gradient(135deg, #76c893, #52b69a, #34a0a4, #168aad, #1a759f);
-    animation: moveBg 12s infinite linear;
-    z-index: -1;
-    filter: blur(80px);
+    background: linear-gradient(135deg, #84dcc6, #a5ffd6, #ffa69e, #ff686b);
+    animation: moveBg 18s infinite linear;
+    z-index: -3;
+    filter: blur(120px);
 }
 
 @keyframes moveBg {
-    0% { transform: translate(-30%, -30%) rotate(0deg); }
-    50% { transform: translate(30%, 30%) rotate(180deg); }
-    100% { transform: translate(-30%, -30%) rotate(360deg); }
+    0% { transform: translate(-20%, -20%) rotate(0deg); }
+    50% { transform: translate(25%, 25%) rotate(180deg); }
+    100% { transform: translate(-20%, -20%) rotate(360deg); }
 }
 
-/* FORM WRAPPER FULL SCREEN */
+/* TOP DECOR IMAGE */
+.top-bg {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 270px;
+    background-size: cover;
+    opacity: 0.4;
+    z-index: -2;
+}
+
+/* FORM WRAPPER */
 .form-wrapper {
-    width: 100vw; /* FULL WIDTH */
-    height: 100vh; /* FULL HEIGHT */
+    width: 100%;
+    height: 100%;
     overflow-y: auto;
-    padding: 50px 20px;
-    box-sizing: border-box;
+    padding: 30px 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* MODERN CARD UI */
+form {
+    width: 95%;
+    max-width: 600px;
+    padding: 40px;
+    border-radius: 18px;
+
+    background: rgba(255, 255, 255, 0.18);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
 
     display: flex;
     flex-direction: column;
-    align-items: center;
+    gap: 20px;
 }
 
-/* Form box styling */
-form {
-    width: 90%;
-    max-width: 600px;
-    background: rgba(255,255,255,0.25);
-    backdrop-filter: blur(12px);
-    padding: 30px;
-    border-radius: 14px;
-    box-shadow: 0 8px 40px rgba(0,0,0,0.25);
-}
-
-/* Heading */
+/* TITLE */
 h1 {
+    color: #012a4a;
     text-align: center;
-    color: #003049;
-    font-size: 32px;
-    margin-top: 0;
-}
-
-/* Labels */
-label {
-    font-weight: bold;
-    color: #003049;
-    margin-bottom: 6px;
-    display: block;
-}
-
-/* Inputs */
-input, select, textarea {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 12px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    font-size: 15px;
-    outline: none;
-}
-
-input:focus, select:focus, textarea:focus {
-    border-color: #168aad;
-    box-shadow: 0 0 8px #168aad80;
-}
-
-/* Radio & checkbox styling */
-.radio-group label,
-.checkbox-group label {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    font-size: 34px;
     margin-bottom: 10px;
 }
 
-.radio-group input,
-.checkbox-group input {
-    width: auto;
+/* LABELS */
+label {
+    font-size: 15px;
+    font-weight: 600;
+    color: #012a4a;
 }
 
-/* Buttons row */
+/* INPUT + SELECT STYLING */
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border-radius: 10px;
+    border: 1px solid #bcd0d4;
+    background: rgba(255, 255, 255, 0.7);
+
+    font-size: 15px;
+    color: #012a4a;
+    outline: none;
+
+    transition: 0.25s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #0077b6;
+    box-shadow: 0 0 8px #0077b670;
+    background: white;
+}
+
+/* BUTTON ROW */
 .btn-row {
     display: flex;
     justify-content: space-between;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 button {
     width: 48%;
     padding: 12px;
     border: none;
-    border-radius: 8px;
-    font-size: 16px;
+    border-radius: 10px;
+    font-size: 17px;
+    font-weight: 600;
     cursor: pointer;
-    color: white;
     transition: 0.3s ease;
+    color: white;
 }
 
 .submit-btn {
-    background: #0077b6;
+    background: linear-gradient(135deg, #0077b6, #023e8a);
 }
 .submit-btn:hover {
-    background: #023e8a;
+    background: linear-gradient(135deg, #005082, #012a4a);
 }
 
 .reset-btn {
-    background: #d00000;
+    background: linear-gradient(135deg, #d62828, #ba181b);
 }
 .reset-btn:hover {
-    background: #9b0000;
+    background: linear-gradient(135deg, #a4161a, #660708);
 }
-form {
-    width: 90%;
-    max-width: 650px;
 
-    background: rgba(255,255,255,0.25);
-    backdrop-filter: blur(12px);
-    padding: 35px;
-    border-radius: 14px;
-
-    box-shadow: 0 8px 40px rgba(0,0,0,0.25);
-
-    display: flex;
-    flex-direction: column;   /* 🔥 KEY FIX */
-    gap: 14px;                /* spacing between inputs */
-}
-/* Bike animation container */
+/* BIKE ANIMATION */
 .bike-animation {
     position: absolute;
-    bottom: 10%;        /* height of cycle */
-    left: -200px;       /* start off screen */
+    bottom: 12%;
+    left: -200px;
     width: 150px;
-    z-index: -1;        /* behind the form */
-    animation: moveBike 12s linear infinite;
-    opacity: 0.7; /* soft effect */
+    z-index: -1;
+    animation: moveBike 14s linear infinite;
+    opacity: 0.85;
 }
 
-/* Resize bike */
 .bike-animation img {
     width: 150px;
 }
 
-/* Movement animation */
 @keyframes moveBike {
-    0% {
-        transform: translateX(-200px);
-    }
-    50% {
-        transform: translateX(110vw);  /* cycle moves across whole screen */
-    }
-    100% {
-        transform: translateX(-200px); /* reset again */
-    }
+    0% { transform: translateX(-200px); }
+    50% { transform: translateX(110vw); }
+    100% { transform: translateX(-200px); }
 }
